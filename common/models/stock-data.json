@@ -1,0 +1,45 @@
+{
+  "name": "StockData",
+  "plural": "StockData",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "default": "AAPL"
+    },
+    "Open": {
+      "type": "number",
+      "required": true,
+      "default": 186.35
+    },
+    "High": {
+      "type": "number",
+      "required": true,
+      "default": 187.15
+    },
+    "Low": {
+      "type": "number",
+      "required": true,
+      "default": 185.95
+    },
+    "Mkt_cap": {
+      "type": "string",
+      "required": true,
+      "default": "915.39B"
+    },
+    "PE_Ratio": {
+      "type": "number",
+      "required": true,
+      "default": 17.14
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
