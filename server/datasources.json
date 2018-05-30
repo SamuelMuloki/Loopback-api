@@ -1,11 +1,11 @@
 {
   "mysqlDs": {
-    "host": "demo.strongloop.com",
+    "host": "127.0.0.1",
     "port": 3306,
-    "database": "getting_started",
-    "password": "L00pBack",
+    "database": "test",
+    "password": "",
     "name": "mysqlDs",
-    "user": "demo",
+    "user": "",
     "connector": "mysql"
   }
 }
