@@ -1,45 +1,92 @@
 {
-  "name": "StockData",
-  "plural": "StockData",
+  "name": "eta_data",
+  "plural": "eta_data",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "timestamp": {
       "type": "string",
       "required": true,
-      "default": "AAPL"
+      "default": "5/18/2012"
     },
-    "Open": {
+    "open": {
       "type": "number",
       "required": true,
-      "default": 186.35
+      "default": 42.05
     },
-    "High": {
+    "high": {
       "type": "number",
       "required": true,
-      "default": 187.15
+      "default": 45
     },
-    "Low": {
+    "low": {
       "type": "number",
       "required": true,
-      "default": 185.95
+      "default": 38
     },
-    "Mkt_cap": {
+    "close": {
+      "type": "number",
+      "required": true,
+      "default": 38.2318
+    },
+    "adjusted_close": {
+      "type": "number",
+      "required": true,
+      "default": 38.2318
+    },
+    "volume": {
+      "type": "number",
+      "required": true,
+      "default": 573576400
+    },
+    "username": {
       "type": "string",
       "required": true,
-      "default": "915.39B"
+      "default": "mset"
     },
-    "PE_Ratio": {
-      "type": "number",
+    "ticker_Symbol": {
+      "type": "string",
       "required": true,
-      "default": 17.14
+      "default": "FB"
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "eta": {
+      "type": "belongsTo",
+      "model": "eta",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

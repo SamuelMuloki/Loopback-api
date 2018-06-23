@@ -13,7 +13,11 @@
       "./mixins"
     ]
   },
-  "StockData": {
+  "eta_data": {
+    "dataSource": "mysqlDs",
+    "public": false
+  },
+  "eta": {
     "dataSource": "mysqlDs",
     "public": true
   }

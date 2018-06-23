@@ -1,19 +1,9 @@
 'use strict';
 
-module.exports = function(Stockdata) {
-    Stockdata.getName = function(companyId, cb) {
-        Stockdata.findById( companyId, function (err, instance) {
-            var response = "Name of the company is " + instance.name;
-            cb(null, response);
-            console.log(response);
-        });
-      }
-      Stockdata.remoteMethod (
-            'getName',
-            {
-              http: {path: '/getname', verb: 'get'},
-              accepts: {arg: 'id', type: 'string', http: { source: 'query' } },
-              returns: {arg: 'name', type: 'string'}
-            }
-        );
+module.exports = function(eta_data) {
+  eta_data.beforeRemote('create', function(context, user, next) {
+    context.args.data.date = Date.now();
+    context.args.data.publisherId = context.req.accessToken.userId;
+    next();
+  });
 };
